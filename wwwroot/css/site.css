@@ -1,0 +1,285 @@
+﻿/* Fonts */
+
+/* Open Sans and Roboto are licensed under the Apache license, version 2.0. 
+Titilium Web is licensed under SIL Open Font License (OFL) 
+http://www.apache.org/licenses/
+http://scripts.sil.org/OFL
+*/
+@font-face {
+  font-family: "Roboto";
+  src: url("Roboto-Regular.ttf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Italic";
+  src: url("Roboto-RegularItalic.ttf");
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("Roboto-Bold.ttf");
+  font-weight:bold;
+}
+@font-face {
+  font-family: "Roboto Italic";
+  src: url("Roboto-BoldItalic.ttf");
+  font-style: italic, oblique;
+  font-weight:bold;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Open Sans Semibold";
+  src: url("OpenSans-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Open Sans Semibold Italic";
+  src: url("OpenSans-SemiBoldItalic.ttf");
+  font-weight: 600;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url("OpenSans-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Open Sans Bold Italic";
+  src: url("OpenSans-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Open Sans Black";
+  src: url("OpenSans-ExtraBold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Open Sans Black Italic";
+  src: url("OpenSans-ExtraBoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("OpenSans-Light.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Open Sans Light Italic";
+  src: url("OpenSans-LightItalic.ttf");
+  font-weight: 100;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "TW-Web";
+  src: url("TitilliumWeb-Regular.ttf");
+  font-style: normal;
+}
+@font-face {
+  font-family: "TW-Web Italic";
+  src: url("TitilliumWeb-RegularItalic.ttf");
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: "TW-Web Light";
+  src: url("TitilliumWeb-Light.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "TW-Web Light Italic";
+  src: url("TitilliumWeb-LightItalic.ttf");
+  font-style: italic, oblique;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "TW-Web SemiBold";
+  src: url("TitilliumWeb-SemiBold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "TW-Web SemiBold Italic";
+  src: url("TitilliumWeb-SemiBoldItalic.ttf");
+  font-style: italic, oblique;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "TW-Web Bold";
+  src: url("TitilliumWeb-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "TW-Web Bold Italic";
+  src: url("TitilliumWeb-BoldItalic.ttf");
+  font-style: italic, oblique;
+  font-weight: bold;
+}
+
+div#teamheader {
+  height: 3em;
+  width: 49%;
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 1%;
+  padding-top: 0;
+  margin-right: 0.2%;
+  margin-top: -1%;
+  color: #000;
+  font-size: 1.5em;
+}
+
+#teamheader div {
+  position: absolute;
+  right: 0;
+  bottom: 4%;
+  font-family: "TW-Web", sans-serif;
+  font-size: 1.4em;
+  color: #000;
+  text-shadow: 1px 1px 3px #000;
+}
+}
+
+div#teamlisting {
+  width: 100%;
+}
+
+.Suite {
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+}
+tr.topRow th {
+  background: #0e0929;
+}
+a.Suite {
+  text-decoration: none;
+  font-family: "TW-Web Light Italic", sans-serif;
+  color: #ffa808;
+  font-size: 2em;
+}
+a {font-family: 'TW-Web Light';color: #b2e3ff;text-shadow: 1px 1px #000;}
+nav.navbar {
+    background: #0a0c11;
+}
+
+nav.navbar a {
+    color: #FFF!important;
+}
+a.nav-link {
+  font-family: 'Roboto', sans-serif!important;
+  font-style: normal;
+}
+body {
+  background: #444;
+  color: #FFF;
+}
+
+div#marquee{
+  width: 100%;
+  height: 10.0em;
+  position: relative;
+}
+div#marquee div {
+  bottom: 0;
+  right: 2%;
+  position: absolute;
+  font-family: "TW-Web", sans-serif;
+  font-size: 2em;
+  color: #000;
+  text-shadow: 1px 1px 3px #000;
+}
+div#bar {
+  width: 100%;
+  height: 2em;
+  background: #FFF;
+  display: flex;
+}
+
+#bar div#item {
+  display: contents;
+  color: #000;
+}
+
+body {font-family: 'Open Sans', sans-serif;}
+#item div#field {
+  width: 50%;
+  background: #000;
+  color: #FFF;
+  text-align: center;
+}
+#matchlisting th, td {
+  width: 8%;
+  text-align: center;
+}
+div#closing {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000a1;
+  width: 50%;
+  text-align: center;
+  font-size: 80%;
+}
+a.no-hover:hover {
+  color: #e3e3e3!important;
+}
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}

@@ -1,0 +1,117 @@
+﻿@model tourneybracket.Models.Bracket
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.BracketName);
+    int roundtotal = Convert.ToInt32(Model.TotalRounds);
+    int bracketID = Convert.ToInt32(Model.id);
+    int total = (int)Math.Pow(2, roundtotal);
+    string[] marquee = { "#b800bb", "#673ab7", "#175e67", "#ffeb3b", "#00b8ff", "#001eff", "#bd00ff", "#d600ff", "#00ff9f", "#b1068b", "#485da6", "#7fc8f9", "#5f961a", "#2160e6"};
+    Random rand = new Random();
+    
+    int index = rand.Next(marquee.Length);
+    string marqueeColor = marquee[index];
+    var lastRow = ((IEnumerable<tourneybracket.Models.Match>)ViewData["MatchData"]).Last();
+    string tournamentchampionship = "";
+    string lastWinner = lastRow.WinnerID.ToString();
+    if(String.IsNullOrEmpty(lastWinner) != true){
+        if(lastRow.RoundNumber == roundtotal){
+            var winner = lastRow.WinnerID;
+            int teamAScore = (int)lastRow.TeamAScore;
+            int teamBScore = (int)lastRow.TeamBScore;
+            string TeamA = lastRow.TeamA.TeamName;
+            string TeamB = lastRow.TeamB.TeamName;
+            if(teamAScore > teamBScore){
+                tournamentchampionship = "<div id='item'><div id='field'>Winner</div><div id='closing'>" + TeamA + "</div></div>";
+            }else{
+                tournamentchampionship = "<div id='item'><div id='field'>Winner</div><div id='closing'>" + TeamB + "</div></div>";
+            }
+        }
+    }
+    
+
+}
+
+<div id="marquee" style="background:@marqueeColor">
+    <div> @Html.DisplayFor(model => model.BracketName)</div>
+</div>
+<div id="bar">
+    <div id="item"><div id="field">Created On</div><div id="closing">
+        @Model.CreatedAt.ToString("MM/dd/yyyy hh:mm tt")
+    </div></div>
+<div id="item"><div id="field">Rounds</div><div id="closing">@Html.DisplayFor(model => @model.TotalRounds)</div></div>
+<div id="item"><div id="field">Total Teams</div><div id="closing">@total</div></div>
+@Html.Raw(tournamentchampionship)
+</div>
+
+
+
+
+<div><div style="
+    margin-top: 1em;
+">
+    <h4>Teams</h4>
+    <hr />
+    <div id="teamlisting">
+        @foreach (var item in ViewData["TeamData"] as IEnumerable<tourneybracket.Models.Team>)
+{
+   
+    <a href="/Brackets/@bracketID/Teams/@item.id">
+    <div id="teamheader" style="background: @marquee[rand.Next(marquee.Length)];">
+        <div>
+            @item.TeamName
+        </div>
+    </div>
+    </a>
+}
+</div>
+</div>
+</div>
+<div>
+    <div>
+    <h4>Match</h4>
+    <hr />
+    <table id="matchlisting">
+    <tbody>
+        <tr class="topRow">
+            <th>Round#</th>
+            <th>Match#</th>
+            <th>Home</th>
+            <th>Away</th>
+            <th>Home Wins</th>
+            <th>Away Wins</th>
+            <th>Winner</th>
+        </tr>
+       
+@foreach (var item in ViewData["MatchData"] as IEnumerable<tourneybracket.Models.Match>)
+{
+     <tr>
+            <td>@item.RoundNumber</td>
+            <td>@item.MatchNumber</td>
+            <td>@item.TeamA.TeamName</td>
+            <td>@item.TeamB.TeamName</td>
+            <td>@item.TeamAScore</td>
+            <td>@item.TeamBScore</td>
+            @{var winner = @item.WinnerID;
+                var teamAID = item.TeamA.id;
+                var teamBID = item.TeamB.id;}
+                @if (winner == teamAID){
+                     <td>@item.TeamA.TeamName</td>
+                }
+                else if (winner == teamBID){
+                <td>@item.TeamB.TeamName</td>
+                }
+                else{
+                    <td></td>
+                }
+                <td>
+                <a href="/Brackets/@bracketID/Matches/Edit/@item.MatchNumber">Edit</a> |
+                <a href="/Brackets/@bracketID/Matches/Details/@item.MatchNumber">Details</a> |
+                <a href="/Brackets/@bracketID/Matches/Delete/@item.MatchNumber">Delete</a>
+            </td>
+     </tr>
+}
+       
+    </tbody>
+</table>
+</div>
+

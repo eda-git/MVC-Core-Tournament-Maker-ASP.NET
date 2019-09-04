@@ -1,0 +1,66 @@
+﻿@model tourneybracket.Models.Match
+
+@{
+    ViewData["Title"] = "Edit";
+    int roundNumber = Convert.ToInt32(Model.RoundNumber);
+    int BracketID = Convert.ToInt32(Model.BracketID);
+    int A_ID = Convert.ToInt32(Model.TeamAID);
+    int B_ID = Convert.ToInt32(Model.TeamBID);
+    int matchNumber = Convert.ToInt32(Model.MatchNumber);
+    string TeamAName = Model.TeamA.TeamName;
+    string TeamBName = Model.TeamB.TeamName;
+
+
+}
+
+<h1>Edit</h1>
+
+<h4>Match</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MatchID" />
+            <div class="form-group">
+                <input type="hidden" value="@matchNumber" asp-for="MatchNumber" class="form-control" />
+                <input type="hidden" value="@B_ID" asp-for="TeamBID" class="form-control" />
+                <input type="hidden" value="@A_ID" asp-for="TeamAID" class="form-control" />
+                <span asp-validation-for="MatchNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamAID" class="control-label">@TeamBName vs. @TeamAName</label>
+                
+                <span asp-validation-for="TeamAID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamAScore" class="control-label">Games won by @TeamAName</label>
+                <input asp-for="TeamAScore" class="form-control" />
+                <span asp-validation-for="TeamAScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamBScore" class="control-label">Games won by @TeamBName</label>
+                <input asp-for="TeamBScore" class="form-control" />
+                <span asp-validation-for="TeamBScore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@BracketID" asp-for="BracketID" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@roundNumber" asp-for="RoundNumber" class="form-control" />
+                <span asp-validation-for="RoundNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

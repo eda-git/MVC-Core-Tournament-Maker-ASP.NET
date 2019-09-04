@@ -1,0 +1,26 @@
+﻿@model tourneybracket.Models.Bracket
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["dt"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+    int total = Convert.ToInt32(Model.TotalRounds) * 2;
+
+}
+<h1>Create</h1>
+
+<h4>Bracket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+       
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

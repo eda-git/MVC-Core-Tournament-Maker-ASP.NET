@@ -1,0 +1,77 @@
+﻿@model tourneybracket.Models.Match
+
+@{
+    ViewData["Title"] = "Details";
+    int teamAScore = (int)Model.TeamAScore;
+    int teamBScore = (int)Model.TeamBScore;
+    int id = (int)Model.BracketID;
+    string TeamA = Model.TeamA.TeamName;
+    string TeamB = Model.TeamB.TeamName;
+    string tournamentchampionship = "";
+    if(teamAScore > teamBScore){
+        tournamentchampionship = TeamA;
+    }else{
+        tournamentchampionship = TeamB;
+    }
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MatchNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MatchNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            Higher Seed
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamA.TeamName)
+        </dd>
+        <dt class = "col-sm-2">
+            Lower Seed
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamB.TeamName)
+        </dd>
+        <dt class = "col-sm-2">
+           Higher Seed Games Won  
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamAScore)
+        </dd>
+        <dt class = "col-sm-2">
+            Lower Seed Games Won 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamBScore)
+        </dd>
+        <dt class = "col-sm-2">
+            Series Winner
+        </dt>
+        <dd class = "col-sm-10">
+            @tournamentchampionship
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bracket)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bracket.BracketName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RoundNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RoundNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MatchID">Edit</a> |
+    <a href="/Brackets/Details/@id/">Back to List</a>
+</div>

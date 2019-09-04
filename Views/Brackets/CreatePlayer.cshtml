@@ -1,0 +1,39 @@
+﻿@model tourneybracket.Models.Bracket
+
+@{
+    ViewData["Title"] = "Create";
+    ViewData["dt"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+    int roundtotal = Convert.ToInt32(Model.TotalRounds);
+    int total = (int)Math.Pow(2, roundtotal);
+    int id =  Convert.ToInt32(Model.id);
+}
+<h1>Create</h1>
+
+<h4>Bracket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+         <form asp-action="Teamroll">
+            <div class="form-group">
+                <input name="id" type="hidden" value='@id' />
+                @for(var i = 0; i < total; i++)
+                        {
+                        <div style="display:inline-flex">
+                        <p>Team @(i+1)</p>
+                        <input name="TeamTemp[@i]" type="text" placeholder="Enter Team Name Here" />
+                        </div>
+                    }
+                    <br>
+                <input type="submit" class="btn btn-default" value="Submit" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

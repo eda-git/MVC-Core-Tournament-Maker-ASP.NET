@@ -1,0 +1,77 @@
+﻿@model IEnumerable<tourneybracket.Models.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamAScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamBScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WinnerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bracket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoundNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamA.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamB.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamAScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamBScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WinnerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bracket.BracketName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoundNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MatchID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MatchID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MatchID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
